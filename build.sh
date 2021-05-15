@@ -50,6 +50,7 @@ kernel/drivers/hid/hid-cherry.ko
 kernel/drivers/hid/hid-apple.ko
 kernel/net/ipv4
 !
+
 chroot rootfs /usr/bin/env PATH=/usr/bin:/bin:/usr/sbin:/sbin \
 	/sbin/mkinitfs -F "checkn1x" -k -t /tmp -q $(ls rootfs/lib/modules)
 rm -rfv rootfs/lib/modules

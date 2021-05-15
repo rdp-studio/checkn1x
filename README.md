@@ -23,6 +23,4 @@ Downloads are available under [actions artifacts](https://github.com/rdp-studio/
 * The ``CRSOURCE`` variable is the direct link to the build of checkra1n that will be used.
 * Add something to the ``VERSION`` variable if you want to redistribute your image, i.e. ``1.0.6-foo``.
 
-```sh
-docker run -it -v $(pwd):/app --rm --privileged ubuntu "cd /app && /app/build.sh"
-```
+It's automatic build with Github Actions.

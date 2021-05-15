@@ -7,7 +7,7 @@ ROOTFS="https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86_64/alpine-minir
 CRBINARY="https://assets.checkra.in/downloads/linux/cli/x86_64/dac9968939ea6e6bfbdedeb41d7e2579c4711dc2c5083f91dced66ca397dc51d/checkra1n"
 
 apt update
-apt install -y curl ca-certificates tar gzip grub2-common grub-pc-bin grub-efi-amd64-bin xorriso mtools
+apt install -y curl ca-certificates tar gzip grub2-common grub-pc-bin grub-efi-amd64-bin xorriso mtools xz-utils cpio
 
 # clean up previous attempts
 umount -v work/rootfs/dev >/dev/null 2>&1

@@ -1,0 +1,18 @@
+#!/bin/sh
+clear
+cat << !
+Welcome to checkn1x.
+
+Alt+F1 : Welcome
+Alt+F2 : Checkra1n
+Alt+F3 : Checkra1n CLI-mode
+Alt+F4 : Usbmuxd (debug)
+Alt+F5 : Shell (debug)
+
+A project by RDPStudio
+https://github.com/rdp-studio/checkn1x
+
+Connected USB devices:
+`lsusb | cut -c24-`
+!
+sleep 5

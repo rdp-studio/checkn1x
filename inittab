@@ -1,0 +1,5 @@
+# /etc/inittab
+::sysinit:/sbin/openrc sysinit
+::wait:/sbin/openrc default
+tty1::respawn:/usr/local/bin/checkn1x_welcome
+::ctrlaltdel:/sbin/reboot -f

@@ -65,6 +65,7 @@ umount -v rootfs/sys
 umount -v rootfs/proc
 
 # fetch resources
+read -s -n1 -p "PRESS ANY KEY TO START DOWNLOAD CHECKRA1N..."
 curl -Lo rootfs/usr/local/bin/checkra1n "$CRBINARY"
 
 # copy files

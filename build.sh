@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # checkn1x build script
-# https://asineth.gq/checkn1x
 #
 VERSION="1.0.0"
 ROOTFS="https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86_64/alpine-minirootfs-3.13.5-x86_64.tar.gz"

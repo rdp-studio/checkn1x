@@ -1,2 +1,2 @@
 #!/bin/sh
-checkra1n
+./checkra1n

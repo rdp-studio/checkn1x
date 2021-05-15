@@ -10,11 +10,11 @@ sudo apt update
 sudo apt install -y curl ca-certificates tar gzip grub2-common grub-pc-bin grub-efi-amd64-bin xorriso mtools xz-utils cpio
 
 # clean up previous attempts
-umount -v work/rootfs/dev >/dev/null 2>&1
-umount -v work/rootfs/sys >/dev/null 2>&1
-umount -v work/rootfs/proc >/dev/null 2>&1
-rm -rf work
-mkdir -pv work/{rootfs,iso/boot/grub}
+umount -v /home/runner/work/rootfs/dev >/dev/null 2>&1
+umount -v /home/runner/work/rootfs/sys >/dev/null 2>&1
+umount -v /home/runner/work/rootfs/proc >/dev/null 2>&1
+rm -rf /home/runner/work
+mkdir -pv /home/runner/work/{rootfs,iso/boot/grub}
 cd work
 
 # fetch rootfs
@@ -30,7 +30,7 @@ http://dl-cdn.alpinelinux.org/alpine/edge/testing
 !
 
 # rootfs packages & services
-cat << ! | chroot rootfs /usr/bin/env PATH=/usr/bin:/bin:/usr/sbin:/sbin /bin/sh
+cat << ! | chroot /home/runner/rootfs /usr/bin/env PATH=/usr/bin:/bin:/usr/sbin:/sbin /bin/sh
 apk upgrade
 apk add alpine-base ncurses-terminfo-base udev usbmuxd libusbmuxd-progs openssh-client sshpass usbutils
 apk add --no-scripts linux-lts linux-firmware-none
@@ -42,7 +42,7 @@ rc-update add udev-settle
 !
 
 # kernel modules
-cat << ! > rootfs/etc/mkinitfs/features.d/checkn1x.modules
+cat << ! > /home/runner/rootfs/etc/mkinitfs/features.d/checkn1x.modules
 kernel/drivers/usb/host
 kernel/drivers/hid/usbhid
 kernel/drivers/hid/hid-generic.ko
@@ -51,7 +51,7 @@ kernel/drivers/hid/hid-apple.ko
 kernel/net/ipv4
 !
 
-chroot rootfs /usr/bin/env PATH=/usr/bin:/bin:/usr/sbin:/sbin \
+chroot /home/runner/rootfs /usr/bin/env PATH=/usr/bin:/bin:/usr/sbin:/sbin \
 	/sbin/mkinitfs -F "checkn1x" -k -t /tmp -q $(ls rootfs/lib/modules)
 rm -rfv rootfs/lib/modules
 mv -v rootfs/tmp/lib/modules rootfs/lib

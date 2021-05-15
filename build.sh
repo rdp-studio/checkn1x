@@ -96,4 +96,4 @@ find . | cpio -oH newc | xz -C crc32 --x86 -vz9eT0 > ../iso/boot/initramfs.xz
 popd
 
 # iso creation
-grub-mkrescue -o "checkn1x-$VERSION.iso" iso --compress=xz
+grub-mkrescue -o "checkn1x-$VERSION.iso" iso

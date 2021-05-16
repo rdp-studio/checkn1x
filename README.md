@@ -6,7 +6,7 @@ Linux-based distribution for jailbreaking iOS devices w/ checkra1n.
 
 ## Downloads
 
-Downloads are available under [actions artifacts](https://github.com/rdp-studio/checkn1x/actions).
+Downloads are available under [Releases](https://github.com/rdp-studio/checkn1x/releases).
 
 ## Usage
 

@@ -52,6 +52,16 @@ kernel/drivers/hid/hid-apple.ko
 kernel/net/ipv4
 !
 
+# debug console login message
+cat << ! > rootfs/etc/motd
+Welcome to checkn1x!
+
+WARMMING: THIS IS THE DEBUG CONSOLE,IF YOU DO NOT KNOW WHAT IS THIS,PRESS ALT+F1 AND BACK TO WELCOME MENU!
+WARMMING: ANYONE WHO ASKS TO ENTER A COMMAND HERE BEFORE OR AFTER JAILBREAKING IS AN ILLEGAL PERSON, WHICH MAY THREATEN YOUR DATA!
+
+
+!
+
 chroot rootfs /usr/bin/env PATH=/usr/bin:/bin:/usr/sbin:/sbin \
 	/sbin/mkinitfs -F "checkn1x" -k -t /tmp -q $(ls rootfs/lib/modules)
 rm -rfv rootfs/lib/modules
@@ -66,8 +76,6 @@ umount -v rootfs/sys
 umount -v rootfs/proc
 
 # fetch resources
-echo PRESS ANY KEY TO START DOWNLOAD CHECKRA1N...
-read -s
 curl -Lo rootfs/usr/local/bin/checkra1n "$CRBINARY"
 
 # copy files
@@ -82,6 +90,7 @@ cp -av rootfs/boot/vmlinuz-lts iso/boot/vmlinuz
 cat << ! > iso/boot/grub/grub.cfg
 insmod all_video
 echo 'checkn1x $VERSION : https://github.com/rdp-studio/checkn1x'
+echo 'WARMMING: THIS LINUX DISTRIBUTION IS WRITTEN BY RDPSTUDIO, WITHOUT OUR AUTHORIZATION, COPYRIGHT INFORMATION CANNOT BE CHANGED!'
 linux /boot/vmlinuz quiet loglevel=3
 initrd /boot/initramfs.xz
 boot
